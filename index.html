@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="tr-TR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Türkiye için sansürsüz LLM API — OpenAI uyumlu</title>
+<meta name="description" content="İdeolojik filtresi olmayan dil modeli API'si. OpenAI uyumlu, base https://uncensored-llm.sbs/v1, streaming, tool calling, Türkçe dokümantasyon ve örnek kod.">
+<meta name="keywords" content="sansürsüz llm api, filtresiz yapay zeka api, openai alternatifi, türkçe llm api, sansürsüz dil modeli">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<meta name="author" content="uncensored-llm.sbs">
+<link rel="canonical" href="https://askcode24.github.io/sansursuz-llm-api-turkiye/">
+<link rel="alternate" hreflang="pt-BR" href="https://brown1023.github.io/llm-api-sem-censura-brasil/">
+<link rel="alternate" hreflang="es-419" href="https://brown1023.github.io/api-llm-sin-censura-latam/">
+<link rel="alternate" hreflang="id-ID" href="https://ryuuless.github.io/uncensored-llm-api-indonesia/">
+<link rel="alternate" hreflang="vi-VN" href="https://ryuuless.github.io/uncensored-llm-api-vietnam/">
+<link rel="alternate" hreflang="de-DE" href="https://askcode24.github.io/uncensored-llm-api-deutschland/">
+<link rel="alternate" hreflang="es-ES" href="https://palazuel0s2004.github.io/api-llm-sin-censura-espana/">
+<link rel="alternate" hreflang="it-IT" href="https://palazuel0s2004.github.io/llm-api-senza-censura-italia/">
+<link rel="alternate" hreflang="en-IN" href="https://nirav0712.github.io/uncensored-llm-api-india/">
+<link rel="alternate" hreflang="en-PH" href="https://nirav0712.github.io/uncensored-llm-api-philippines/">
+<link rel="alternate" hreflang="ar" href="https://mohamedabderrehman.github.io/uncensored-llm-api-arabia/">
+<link rel="alternate" hreflang="ar-EG" href="https://mohamedabderrehman.github.io/uncensored-llm-api-egypt/">
+<link rel="alternate" hreflang="x-default" href="https://uncensored-llm.sbs/">
+<meta name="geo.region" content="TR-34">
+<meta name="geo.placename" content="Istanbul, Turkiye">
+<meta name="ICBM" content="41.0082, 28.9784">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="uncensored-llm.sbs">
+<meta property="og:title" content="Türkiye için sansürsüz LLM API — OpenAI uyumlu">
+<meta property="og:description" content="İdeolojik filtresi olmayan dil modeli API'si. OpenAI uyumlu, base https://uncensored-llm.sbs/v1, streaming, tool calling, Türkçe dokümantasyon ve örnek kod.">
+<meta property="og:url" content="https://askcode24.github.io/sansursuz-llm-api-turkiye/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="llms" href="llms.txt">
+<style>*{box-sizing:border-box}body{margin:0;background:#08090c;color:#e8eaf0;font:16px/1.65 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+a{color:#22d3a6;text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid #1e2230;position:sticky;top:0;background:rgba(8,9,12,.86);z-index:5}
+header .wrap{display:flex;align-items:center;gap:18px;height:62px}
+.brand{font-weight:700}.brand span{color:#7c5cff}
+nav{margin-left:auto;display:flex;gap:16px;font-size:14px}
+.btn{display:inline-block;padding:10px 18px;border-radius:9px;background:linear-gradient(135deg,#7c5cff,#5b7cff);color:#fff;font-weight:600}
+.btn.ghost{background:transparent;border:1px solid #1e2230;color:#e8eaf0}
+.hero{padding:72px 0 52px;background:radial-gradient(900px 340px at 20% -10%,rgba(124,92,255,.28),transparent 70%)}
+h1{font-size:clamp(28px,4.4vw,46px);line-height:1.14;margin:0 0 18px;letter-spacing:-.8px}
+.sub{color:#9aa3b2;font-size:18px;max-width:660px;margin:0 0 26px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+section{padding:46px 0;border-top:1px solid #1e2230}
+h2{font-size:24px;margin:0 0 18px}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{border:1px solid #1e2230;border-radius:13px;padding:18px;background:#0b0d13}
+.card h3{margin:0 0 8px;font-size:16px}.card p{margin:0;color:#9aa3b2;font-size:14.5px}
+pre{background:#0b0d13;border:1px solid #1e2230;border-radius:12px;padding:16px;overflow:auto;font-size:13.5px;line-height:1.55}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid #1e2230}
+th{color:#9aa3b2;font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.6px}
+details{border:1px solid #1e2230;border-radius:11px;padding:14px 16px;margin-bottom:10px;background:#0b0d13}
+summary{cursor:pointer;font-weight:600}details p{color:#9aa3b2;margin:10px 0 0}
+footer{border-top:1px solid #1e2230;padding:34px 0 60px;color:#9aa3b2;font-size:14px}
+footer ul{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:10px 22px}</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://uncensored-llm.sbs/#org","name":"uncensored-llm.sbs","url":"https://uncensored-llm.sbs"},{"@type":"WebSite","@id":"https://askcode24.github.io/sansursuz-llm-api-turkiye/#site","url":"https://askcode24.github.io/sansursuz-llm-api-turkiye/","name":"Türkiye için sansürsüz LLM API — OpenAI uyumlu","inLanguage":"tr-TR","publisher":{"@id":"https://uncensored-llm.sbs/#org"}},{"@type":"SoftwareApplication","name":"uncensored-llm.sbs API","applicationCategory":"DeveloperApplication","operatingSystem":"Any","url":"https://askcode24.github.io/sansursuz-llm-api-turkiye/","inLanguage":"tr-TR","description":"İdeolojik filtresi olmayan dil modeli API'si. OpenAI uyumlu, base https://uncensored-llm.sbs/v1, streaming, tool calling, Türkçe dokümantasyon ve örnek kod.","offers":{"@type":"Offer","priceCurrency":"TRY","url":"https://uncensored-llm.sbs","description":"Güncel fiyat ve koşullar: https://uncensored-llm.sbs"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"OpenAI SDK ile gerçekten uyumlu mu?","acceptedAnswer":{"@type":"Answer","text":"Evet. /v1/chat/completions, /v1/models ve streaming SSE aynı olay formatını kullanıyor. Resmi SDK sadece base_url değiştirilerek çalışır."}},{"@type":"Question","name":"Ücretsiz veya deneme paketi var mı?","acceptedAnswer":{"@type":"Answer","text":"Güncel koşullar https://uncensored-llm.sbs adresinde yayınlanıyor. Fiyat değişiklikleri orada duyurulur, bu repoda değil."}},{"@type":"Question","name":"Ne engelleniyor?","acceptedAnswer":{"@type":"Answer","text":"Yasa dışı içerik, 18 yaş altını içeren her türlü materyal dahil. Bu kapsama girmeyen isteklerde cevap doğrudan istek hakkındadır."}},{"@type":"Question","name":"Open WebUI veya LibreChat ile kullanılır mı?","acceptedAnswer":{"@type":"Answer","text":"Kullanılır. İkisi de OpenAI uyumlu base URL kabul eder; https://uncensored-llm.sbs/v1 ve API anahtarını girmen yeterli."}},{"@type":"Question","name":"API anahtarını nasıl korurum?","acceptedAnswer":{"@type":"Answer","text":"Ortam değişkeninde tut, düzenli döndür, frontend'e ve herkese açık repoya asla koyma."}}]}]}</script>
+</head>
+<body>
+<header><div class="wrap"><div class="brand">uncensored<span>-llm</span>.sbs</div>
+<nav><a href="#code">Kod</a><a href="#lat">Gecikme</a><a href="#faq">SSS</a></nav></div></header>
+<main>
+<div class="hero"><div class="wrap"><h1>Cevap veren model, vaaz vermeyen model</h1><p class="sub">OpenAI uyumlu API. Türkçe doğal çıktı, sistem promptu harfiyen uygulanır, her yanıtın başında uyarı paragrafı olmaz. Base: https://uncensored-llm.sbs/v1</p>
+<div class="cta"><a class="btn" href="https://uncensored-llm.sbs">API'yi aç</a><a class="btn ghost" href="#code">Hemen dene</a></div></div></div>
+<section><div class="wrap"><h2>Türkiye'de çalışan ekip için ne değişir</h2><div class="grid">
+<div class="card"><h3>Tek satır değişiklik</h3><p>openai kütüphanesi aynı, sadece base_url değişir. Kalan kod aynen çalışır.</p></div>
+<div class="card"><h3>Doğal Türkçe</h3><p>Çeviri tonu yok, yarım bırakılmış cümle yok. Sistem promptuna uyar.</p></div>
+<div class="card"><h3>Streaming ve araç çağırma</h3><p>Token token SSE, function calling, JSON mode.</p></div>
+<div class="card"><h3>İdeolojik filtre yok</h3><p>Ürünün kapsamını ekip belirler, sağlayıcı değil.</p></div>
+</div></div></section>
+<section id="code"><div class="wrap"><h2>40 saniyede çalışır</h2><p class="sub">openai>=1.0, LangChain, LlamaIndex, Vercel AI SDK, Open WebUI ve baseURL değiştirilebilen her istemciyle uyumlu.</p>
+<pre><code>curl https://uncensored-llm.sbs/v1/chat/completions \
+  -H "Authorization: Bearer $UNLLM_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"model":"uncensored-llm","messages":[{"role":"user","content":"Kripto piyasa değerinin nasıl hesaplandığını kısa ve net anlat."}],"stream":true}'</code></pre>
+<pre><code>from openai import OpenAI
+
+client = OpenAI(base_url="https://uncensored-llm.sbs/v1", api_key="sk-...")
+r = client.chat.completions.create(
+    model="uncensored-llm",
+    messages=[{"role": "user", "content": "Kripto piyasa değerinin nasıl hesaplandığını kısa ve net anlat."}],
+)
+print(r.choices[0].message.content)</code></pre></div></section>
+<section id="lat"><div class="wrap"><h2>Şehrine göre gecikme</h2><p class="sub">Gecikmeyi operatör belirler, bayrak değil. Önce kendi makinenden ölç:</p>
+<pre><code>curl -o /dev/null -s -w '%{time_total}s\n' https://uncensored-llm.sbs/v1/models</code></pre>
+<table><thead><tr><th>Şehir</th><th>Bölge</th></tr></thead><tbody>
+<tr><td>İstanbul</td><td>Marmara</td></tr>
+<tr><td>Ankara</td><td>İç Anadolu</td></tr>
+<tr><td>İzmir</td><td>Ege</td></tr>
+<tr><td>Bursa</td><td>Marmara</td></tr>
+<tr><td>Antalya</td><td>Akdeniz</td></tr>
+<tr><td>Adana</td><td>Akdeniz</td></tr>
+<tr><td>Konya</td><td>İç Anadolu</td></tr>
+<tr><td>Gaziantep</td><td>Güneydoğu</td></tr>
+<tr><td>Kayseri</td><td>İç Anadolu</td></tr>
+<tr><td>Trabzon</td><td>Karadeniz</td></tr>
+<tr><td>Diyarbakır</td><td>Güneydoğu</td></tr>
+<tr><td>Samsun</td><td>Karadeniz</td></tr>
+</tbody></table></div></section>
+<section><div class="wrap"><h2>Genelde şu işlerde kullanılıyor</h2><div class="grid">
+<div class="card"><h3>Müşteri desteği</h3><p>Politika metni okuyan değil, sorunu çözen bot.</p></div>
+<div class="card"><h3>Türkçe içerik</h3><p>Yerel tonda makale, senaryo ve e-posta üretimi.</p></div>
+<div class="card"><h3>Sızma testi raporu</h3><p>Müşterinin yazılı izniyle yapılan ofansif çalışma.</p></div>
+<div class="card"><h3>18+ kurgu</h3><p>Yetişkinler arası açık sahneler, kesme yok.</p></div>
+</div></div></section>
+<section id="faq"><div class="wrap"><h2>Gerçekten sorulan sorular</h2>
+<details><summary>OpenAI SDK ile gerçekten uyumlu mu?</summary><p>Evet. /v1/chat/completions, /v1/models ve streaming SSE aynı olay formatını kullanıyor. Resmi SDK sadece base_url değiştirilerek çalışır.</p></details>
+<details><summary>Ücretsiz veya deneme paketi var mı?</summary><p>Güncel koşullar https://uncensored-llm.sbs adresinde yayınlanıyor. Fiyat değişiklikleri orada duyurulur, bu repoda değil.</p></details>
+<details><summary>Ne engelleniyor?</summary><p>Yasa dışı içerik, 18 yaş altını içeren her türlü materyal dahil. Bu kapsama girmeyen isteklerde cevap doğrudan istek hakkındadır.</p></details>
+<details><summary>Open WebUI veya LibreChat ile kullanılır mı?</summary><p>Kullanılır. İkisi de OpenAI uyumlu base URL kabul eder; https://uncensored-llm.sbs/v1 ve API anahtarını girmen yeterli.</p></details>
+<details><summary>API anahtarını nasıl korurum?</summary><p>Ortam değişkeninde tut, düzenli döndür, frontend'e ve herkese açık repoya asla koyma.</p></details>
+</div></section>
+</main>
+<footer><div class="wrap"><p>Güncel fiyat ve koşullar: https://uncensored-llm.sbs</p><p>Bu dokümantasyon diğer dillerde</p><ul>
+<li><a href="https://brown1023.github.io/llm-api-sem-censura-brasil/" hreflang="pt-BR" lang="pt-BR">pt-BR</a></li>
+<li><a href="https://brown1023.github.io/api-llm-sin-censura-latam/" hreflang="es-419" lang="es-419">es-419</a></li>
+<li><a href="https://ryuuless.github.io/uncensored-llm-api-indonesia/" hreflang="id-ID" lang="id-ID">id-ID</a></li>
+<li><a href="https://ryuuless.github.io/uncensored-llm-api-vietnam/" hreflang="vi-VN" lang="vi-VN">vi-VN</a></li>
+<li><a href="https://askcode24.github.io/uncensored-llm-api-deutschland/" hreflang="de-DE" lang="de-DE">de-DE</a></li>
+<li><a href="https://palazuel0s2004.github.io/api-llm-sin-censura-espana/" hreflang="es-ES" lang="es-ES">es-ES</a></li>
+<li><a href="https://palazuel0s2004.github.io/llm-api-senza-censura-italia/" hreflang="it-IT" lang="it-IT">it-IT</a></li>
+<li><a href="https://nirav0712.github.io/uncensored-llm-api-india/" hreflang="en-IN" lang="en-IN">en-IN</a></li>
+<li><a href="https://nirav0712.github.io/uncensored-llm-api-philippines/" hreflang="en-PH" lang="en-PH">en-PH</a></li>
+<li><a href="https://mohamedabderrehman.github.io/uncensored-llm-api-arabia/" hreflang="ar" lang="ar">ar</a></li>
+<li><a href="https://mohamedabderrehman.github.io/uncensored-llm-api-egypt/" hreflang="ar-EG" lang="ar-EG">ar-EG</a></li>
+</ul><p>uncensored-llm.sbs — OpenAI uyumlu API. Yasa dışı içerik ve 18 yaş altını içeren materyal engellenir. Kalan her şey çağrıyı yapanın sorumluluğundadır.</p></div></footer>
+</body>
+</html>

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Sitemap: https://askcode24.github.io/sansursuz-llm-api-turkiye/sitemap.xml
+
+# Türkiye için sansürsüz LLM API — OpenAI uyumlu
+# İdeolojik filtresi olmayan dil modeli API'si. OpenAI uyumlu, base https://uncensored-llm.sbs/v1, streaming, tool calling, Türkçe dokümantasyon ve örnek kod.
